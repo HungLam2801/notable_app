@@ -28,16 +28,20 @@
 
 .text-editor {
   width: 100%;
-  max-width: 800px;
+  max-width: 800p x;
   background: white;
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 4px;
 }
 
-.ql-editor {
-  min-height: 200px;
-  color: black;
+textarea {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  resize: vertical;
 }
 
 .buttons {
@@ -55,5 +59,10 @@ button {
 
 input[type="file"] {
   padding: 10px 20px;
+  font-size: 16px;
+}
+
+input[type="text"] {
+  padding: 10px;
   font-size: 16px;
 }
