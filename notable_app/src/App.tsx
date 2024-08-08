@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+// import './quill-custom.css'; // Import CSS tùy chỉnh
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const [editorContent, setEditorContent] = useState<string>('');
+
+  const handleChange = (content: string) => {
+    setEditorContent(content);
+  };
+
+  const saveToFile = () => {
+    const blob = new Blob([editorContent], { type: 'text/plain;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'document.txt';
+    link.click();
+  };
+
+  const openFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const content = e.target?.result as string;
+        setEditorContent(content);
+      };
+      reader.readAsText(file);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h1>Text Editor</h1>
+      <div className="text-editor">
+        <ReactQuill value={editorContent} onChange={handleChange} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="buttons">
+        <button onClick={saveToFile}>Save to File</button>
+        <input type="file" accept=".txt" onChange={openFile} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <div className="output">
+        <h2>Content</h2>
+        <div dangerouslySetInnerHTML={{ __html: editorContent }} />
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;

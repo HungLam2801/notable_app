@@ -1,42 +1,59 @@
 #root {
-  max-width: 1280px;
+  max-width: 1500px;
+  width: fit-content;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(61, 21, 220);
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.output {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+  background: hsl(0, 79%, 50%);
+  border: 1px solid hsl(0, 84%, 48%);
+  padding: 20px;
+  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.text-editor {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-.card {
-  padding: 2em;
+.ql-editor {
+  min-height: 200px;
+  color: black;
 }
 
-.read-the-docs {
-  color: #888;
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  padding: 10px 20px;
+  font-size: 16px;
 }
