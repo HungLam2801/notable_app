@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+// import './quill-custom.css'; // Import CSS tùy chỉnh
 import './App.css';
 
 const App: React.FC = () => {
   const [editorContent, setEditorContent] = useState<string>('');
-  const [fileName, setFileName] = useState<string>('document.txt');
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setEditorContent(event.target.value);
-  };
-
-  const handleFileNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFileName(event.target.value);
+  const handleChange = (content: string) => {
+    setEditorContent(content);
   };
 
   const saveToFile = () => {
     const blob = new Blob([editorContent], { type: 'text/plain;charset=utf-8' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = fileName;
+    link.download = 'document.txt';
     link.click();
   };
 
@@ -37,27 +35,15 @@ const App: React.FC = () => {
     <div className="App">
       <h1>Text Editor</h1>
       <div className="text-editor">
-        <textarea 
-          value={editorContent} 
-          onChange={handleChange} 
-          placeholder="Start typing..."
-          rows={10}
-          cols={80}
-        />
+        <ReactQuill value={editorContent} onChange={handleChange} />
       </div>
       <div className="buttons">
-        <input 
-          type="text" 
-          value={fileName} 
-          onChange={handleFileNameChange} 
-          placeholder="Enter file name" 
-        />
-        <button onClick={saveToFile}>Save As</button>
+        <button onClick={saveToFile}>Save to File</button>
         <input type="file" accept=".txt" onChange={openFile} />
       </div>
       <div className="output">
         <h2>Content</h2>
-        <div>{editorContent}</div>
+        <div dangerouslySetInnerHTML={{ __html: editorContent }} />
       </div>
     </div>
   );
