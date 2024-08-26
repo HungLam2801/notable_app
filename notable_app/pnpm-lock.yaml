@@ -23,6 +23,9 @@ importers:
       '@mui/styled-engine-sc':
         specifier: 6.0.0-alpha.18
         version: 6.0.0-alpha.18(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@types/workbox-core':
+        specifier: ^5.0.0
+        version: 5.0.0
       cra-template-pwa-typescript:
         specifier: ^2.0.0
         version: 2.0.0
@@ -41,6 +44,9 @@ importers:
       web-vitals:
         specifier: ^4.2.3
         version: 4.2.3
+      workbox-core:
+        specifier: ^7.1.0
+        version: 7.1.0
     devDependencies:
       '@types/node':
         specifier: ^22.3.0
@@ -76,7 +82,7 @@ importers:
         specifier: ^0.4.7
         version: 0.4.11(eslint@8.57.0)
       typescript:
-        specifier: ^5.2.2
+        specifier: ^5.5.4
         version: 5.5.4
       vite:
         specifier: ^5.3.4
@@ -1267,6 +1273,10 @@ packages:
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+
+  '@types/workbox-core@5.0.0':
+    resolution: {integrity: sha512-OlX1pE5nBeXC4N96dpPP6sOJRFhdAuUkHnbOCZbpWVL7Pbi03fudiH/zfj0bNaPdYALbORbchYldc7zaRCUnHA==}
+    deprecated: This is a stub types definition. workbox-core provides its own type definitions, so you do not need this installed.
 
   '@types/yauzl@2.10.3':
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
@@ -4295,6 +4305,10 @@ snapshots:
   '@types/stylis@4.2.5': {}
 
   '@types/trusted-types@2.0.7': {}
+
+  '@types/workbox-core@5.0.0':
+    dependencies:
+      workbox-core: 7.1.0
 
   '@types/yauzl@2.10.3':
     dependencies:
