@@ -17,12 +17,14 @@
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
     "@mui/styled-engine-sc": "6.0.0-alpha.18",
+    "@types/workbox-core": "^5.0.0",
     "cra-template-pwa-typescript": "^2.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-quill": "^2.0.0",
     "styled-components": "^6.1.12",
-    "web-vitals": "^4.2.3"
+    "web-vitals": "^4.2.3",
+    "workbox-core": "^7.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.3.0",
@@ -36,7 +38,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "typescript": "^5.2.2",
+    "typescript": "^5.5.4",
     "vite": "^5.3.4",
     "vite-plugin-pwa": "^0.20.1",
     "wait-on": "^7.0.1"
