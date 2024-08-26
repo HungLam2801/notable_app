@@ -27,7 +27,7 @@ const App: React.FC = () => {
         const content = e.target?.result as string;
         setEditorContent(content);
       };
-      reader.readAsText(file);
+      reader.readAsText(file); 
     }
   };
 

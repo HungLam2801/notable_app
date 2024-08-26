@@ -1,5 +1,9 @@
-import { app, BrowserWindow } from 'electron';
-import * as path from 'path';
+declare var require: any
+const { app, BrowserWindow } = require('electron/main');
+const path = require('path');
+
+import { fileURLToPath } from 'url';
+
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -11,9 +15,10 @@ function createWindow() {
       contextIsolation: false,
     },
   });
+  mainWindow.loadFile('dist/index.html');
 
-  mainWindow.loadURL('http://localhost:5173'); // URL của Vite trong chế độ phát triển
-}
+  //mainWindow.loadURL('http://localhost:5173'); // URL của Vite trong chế độ phát triển
+} 
 
 app.whenReady().then(() => {
   createWindow();
