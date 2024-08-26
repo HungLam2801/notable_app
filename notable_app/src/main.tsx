@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
 import reportWebVitals from './reportWebVitals';
 import PrimarySearchAppBar from './component/Navbar';
 ReactDOM.render(
@@ -13,4 +12,4 @@ ReactDOM.render(
 );
 
 
-reportWebVitals(console.log);
+// reportWebVitals(console.log);
