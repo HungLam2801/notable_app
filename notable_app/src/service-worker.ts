@@ -1,4 +1,8 @@
+
 /// <reference lib="webworker" />
+// declare const self: ServiceWorkerGlobalScope;
+// declare const __WB_MANIFEST: Array<{ url: string; revision: string }>;
+
 /* eslint-disable no-restricted-globals */
 
 // This service worker can be customized!

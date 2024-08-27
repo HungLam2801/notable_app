@@ -1,0 +1,9 @@
+.text-editor {
+    width: 1000px; /* Đặt chiều rộng của trình soạn thảo */
+    margin-left: auto; /* Căn chỉnh sang bên phải */
+    margin-right: 0;
+    height: 100%; /* Chiều cao chiếm toàn bộ chiều cao của màn hình */
+  }
+.ql-editor{
+    height: 460px;
+}

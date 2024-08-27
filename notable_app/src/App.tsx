@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './App.css';
+import './quill-custom.css';
 
 const App: React.FC = () => {
   const [editorContent, setEditorContent] = useState<string>('');
