@@ -4,6 +4,26 @@ import 'react-quill/dist/quill.snow.css';
 import './App.css';
 import NotesList from './component/NotesList';
 
+// Tùy chỉnh toolbar với nhiều chức năng hơn
+const modules = {
+  toolbar: [
+    [{ 'header': [1, 2, false] }], // Tiêu đề
+    ['bold', 'italic', 'underline', 'strike'], // In đậm, in nghiêng, gạch chân, gạch ngang
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }], // Danh sách
+    ['blockquote', 'code-block'], // Khối trích dẫn và khối mã
+    [{ 'script': 'sub' }, { 'script': 'super' }], // Chỉ số dưới và chỉ số trên
+    [{ 'align': [] }], // Căn lề
+    ['link', 'image'], // Liên kết và hình ảnh
+    [{ 'color': [] }, { 'background': [] }], // Màu chữ và nền
+    ['clean'], // Xóa định dạng
+  ],
+};
+
+const formats = [
+  'header', 'bold', 'italic', 'underline', 'strike', 'list', 'bullet',
+  'blockquote', 'code-block', 'script', 'align', 'link', 'image', 'color', 'background'
+];
+
 const App: React.FC = () => {
   const [editorContent, setEditorContent] = useState<string>('');
   const [noteTitle, setNoteTitle] = useState<string>(''); // Tiêu đề ghi chú
@@ -41,7 +61,7 @@ const App: React.FC = () => {
       setEditorContent(content);
       setNoteTitle(title);
     }
-  };
+  };  
 
   // Xóa ghi chú khỏi localStorage
   const deleteNote = (title: string) => {
@@ -54,32 +74,33 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      {/* Cột bên trái - Notes List */}
       <header>
         <h1>Text Editor</h1>
       </header>
-      <div className="main-content ">
-            <div className="notes-list-container">
-              <NotesList notes={savedNotes} onLoadNote={loadNote} onDeleteNote={deleteNote} />
-            </div>
-
-            {/* Cột bên phải - React Quill */}
-            <div className="editor-container">
-            <input
-              type="text"
-              value={noteTitle}
-              onChange={(e) => setNoteTitle(e.target.value)}
-              placeholder="Enter note title"
-              className="note-title-input"
+      <div className="main-content">
+        <div className="notes-list-container">
+          <NotesList notes={savedNotes} onLoadNote={loadNote} onDeleteNote={deleteNote} />
+        </div>
+        <div className="editor-container">
+          <input
+            type="text"
+            value={noteTitle}
+            onChange={(e) => setNoteTitle(e.target.value)}
+            placeholder="Enter note title"
+            className="note-title-input"
+          />
+          <div className="buttons">
+            <button onClick={saveToLocalStorage}>Save Note</button>
+          </div>
+          <div className="text-editor">
+            <ReactQuill 
+              value={editorContent} 
+              onChange={handleChange}
+              modules={modules} 
+              formats={formats} 
             />
-            <div className="buttons">
-              <button onClick={saveToLocalStorage}>Save Note</button>
-            </div>
-            <div className="text-editor">
-              <ReactQuill value={editorContent} onChange={handleChange} />
-            </div>
-            
-            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

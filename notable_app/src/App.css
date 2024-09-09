@@ -3,86 +3,151 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
+  background: linear-gradient(135deg, #f0f2f5 0%, #e8eaf6 100%);
+  overflow: auto; /* Ẩn thanh cuộn toàn bộ trang */
 }
-h1 {
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-  background-color: #007bff;
-  color: white;
-}
+
 .App {
   display: flex;
-  flex-direction: column ;
+  flex-direction: column;
   width: 100%;
-  height: 100vh;
-}
-.notes-list-container {
-  width: 50%; /* Chiếm 50% màn hình */
-  padding: 20px;
-  background-color: #ffffff; /* Màu nền cho khu vực Note */
-  overflow-y: auto;
+  min-height: 100vh; /* Đảm bảo chiều cao tối thiểu là 100% chiều cao viewport */
+  overflow: auto; /* Ẩn thanh cuộn cho ứng dụng */
+  
 }
 
-.editor-container {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #ffffff;
-}
-
-.saved-notes {
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-.text-editor {
-  height: 90%; /* Giới hạn chiều cao cho trình soạn thảo */
-}
-
-.buttons {
-  margin-top: 10px;
-}
-.text-editor {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-
-.text-editor {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.ql-container {
-  flex: 1;
-  height: 100%;
-}
-
-
-header {
+.header {
   width: 100%;
-  background-color: #007bff;
+  background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
   color: white;
-  flex-direction: column ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
   margin: 0;
   padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00aaff 0%, #0056b3 100%); 
+  color: #fff;
+  border-bottom: 3px solid #0056b3;
 }
+
 .main-content {
   display: flex;
   flex-direction: row;
   flex: 1;
   width: 100%;
-  height: calc(100vh - 60px); /* Trừ đi chiều cao của header */
+}
+
+.notes-list-container {
+  width: 40%; /* Chiếm 40% màn hình */
+  padding: 20px;
+  background: none;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbYM5shJwpJUGsvdrlwzEyCIfEJaIM506czQ&s') no-repeat center center; /* Hình ảnh nền */
+  background-size: cover; /* Phủ toàn bộ khu vực */
+}
+
+.editor-container {
+  width: 60%; /* Chiếm 60% màn hình */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.saved-notes {
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.8); /* Nền màu trắng với độ trong suốt */
+  padding: 15px;
+  margin-bottom: 15px;
+  /* background-color: #f9f9f9; */
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.saved-notes:hover {
+  background-color: #ffffff;
+  transform: translateY(-5px); /* Hiệu ứng nổi lên khi hover */
+}
+
+.note-title-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.note-title-input:focus {
+  border-color: #007bff; /* Thay đổi màu viền khi focus */
+  outline: none;
+}
+
+.text-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  background: hsl(207, 98%, 49%); /* Màu nền cho vùng soạn thảo */
+  overflow: hidden; /* Ẩn thanh cuộn */
+
+}
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background: linear-gradient(90deg, #0056b3, #003d80);
+  transform: translateY(-2px); /* Hiệu ứng nổi lên khi hover */
+}
+
+.ql-container {
+  flex: 1;
+  height: 100%;
+  border: none !important;
+}
+
+.ql-editor {
+  padding: 12px;
+  min-height: 300px;
+  background-color: #ffffff;
+  /* background-image: url('https://about.canva.com/wp-content/uploads/sites/8/2019/03/white.png'); Thay thế URL với hình ảnh của bạn */
+  background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  background-position: center center; /* Căn giữa hình ảnh */
+  background-size: cover; /* Phủ toàn bộ phần tử */
+  font-size: 16px;
+  line-height: 1.6;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }

@@ -1,0 +1,38 @@
+/* Sidebar.css */
+
+.sidebar {
+    width: 250px;
+    background: url('https://your-image-url.com/image.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+    border-right: 1px solid #e0e0e0;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar .MuiListItemButton-root {
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar .MuiListItemButton-root:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .sidebar .MuiListItemIcon-root {
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar .MuiListItemIcon-root:hover {
+    color: #0056b3; /* Thay đổi màu khi hover */
+  }
+  
+  .sidebar .MuiListItemText-primary {
+    font-weight: 500;
+  }
+  
+  .sidebar .MuiDivider-root {
+    background-color: #e0e0e0;
+  }
+  
